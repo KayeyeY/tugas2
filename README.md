@@ -1,14 +1,19 @@
 
 LINK REPO : https://github.com/KayeyeY/tugas2.git
 
-Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
 - Membuat sebuah proyek Django baru, 
-    Sesuai dengan tutorial yang diberikan, dengan menginisiasi direktori lokal, kemudian aktifkan virtual environment dengan perintah env\Scripts\activate.bat.
+    * Sesuai dengan tutorial yang diberikan, dengan menginisiasi direktori lokal, kemudian aktifkan virtual environment dengan perintah env\Scripts\activate.bat.
+    * Di direktori yang sama, buat berkas requirement.txt dan pasang dependencies, jangan lupa jalankan virtual environment.
+    * Buat proyek Django dengan perintah "django-admin startproject (nama direktori)".
+    * Pada bagian settings.py tambahkan ["*"] pada allowed host.
+    * 
 
 
 
 
-Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya. 
+
+**Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.**
 - MVC (Model-View-Controller):
     (MODEL)
     Mewakili data dan logika bisnis aplikasi. Ini bertanggung jawab untuk mengelola data dan logika yang berkaitan dengan data.
