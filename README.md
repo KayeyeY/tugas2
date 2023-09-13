@@ -31,7 +31,7 @@ LINK REPO : https://github.com/KayeyeY/tugas2.git
 
 
 **Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.**
-
+![Bagan](diagram/Screenshot 2023-09-13 103337.png)
 
 
 **Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?**
