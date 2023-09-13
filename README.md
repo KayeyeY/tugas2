@@ -16,49 +16,39 @@ LINK REPO : https://github.com/KayeyeY/tugas2.git
 
 - Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
     * Buat berkas baru dengan nama 'urls.py' di direktori main.   
-    from django.urls import path  
-    from main.views import show_main  
-
-    app_name = 'main'  
-
-    urlpatterns = [  
-        path('', show_main, name='show_main'),  
-    ]  
-    * Berkas urls.py pada aplikasi main bertanggung jawab untuk mengatur rute URL yang terkait dengan aplikasi main. Impor path dari django.urls untuk mendefinisikan pola URL. Fungsi show_main dari modul main views sebagai tampilan yang akan ditampilkan ketika URL terkait diakses. Nama app_name diberikan untuk memberikan nama unik pada pola URL dalam aplikasi.  
+    * Impor path dari django.urls untuk mendefinisikan pola URL. Nama app_name diberikan untuk memberikan nama unik pada pola URL dalam aplikasi.  
     * Pada direktori proyek, buka file urls.py dan tambahkan 'incude' pada 'from django.urls import path' yang bukan main, lalu tambahkan rute url pada 'urlpatterns'.
     * Run server untuk mengujicoba
-- Membuat model pada aplikasi main dengan nama Item dan memiliki atribut wajib sebagai berikut.  
-name sebagai nama item dengan tipe CharField.  
-amount sebagai jumlah item dengan tipe IntegerField.  
-description sebagai deskripsi item dengan tipe TextField.  
-* untuk menambahkan item tersebut kita dapat memodifikasi file models dan menambahkan ketentuan di atas beserta dengan tipe itemnya.
-* Cara tersebut juga dapat kita lakukan jika kita ingin menambahkan item - item tambahan dengan tipe yang berbeda.
+
+- Membuat model pada aplikasi main dengan nama Item dan memiliki atribut wajib sebagai berikut.    
+    * untuk menambahkan item tersebut kita dapat memodifikasi file models dan menambahkan ketentuan di atas beserta dengan tipe itemnya.
+
+-  Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML.  
+    * Menambahkan function show_main dengan app, name dan class yang akan di return oleh main.html yang sudah dimodifikasi dengan {{name of variables}} di main.html
+
+- Routing urls.py main untuk memetakan fungsi views.py.
+    * impor konfigurasi lalu add app_name = 'main' ke urls.py
+
+
+**Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.**
 
 
 
-
-
+**Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?**
+- Virtual environment memungkinkan untuk membuat lingkungan kerja yang terisolasi untuk setiap proyek sehinnga proyek tidak akan bentrok atau berinterferensi dengan dependensi proyek lain. Ini penting karena setiap proyek mungkin memerlukan versi yang berbeda dari pustaka tertentu atau memiliki kebutuhan khusus. Kita bisa tetap membuat aplikasi tanpa menggunakan virtual environment namun, sangat disarankan untuk menggunakan virtual environment karena akan mempermudah pengelolaan dependensi, memastikan isolasi proyek yang bersih, dan menghindari potensi masalah yang mungkin muncul karena bentrokan versi dependensi. 
 
 
 **Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.**
 - MVC (Model-View-Controller):
-    * (MODEL)
-    Mewakili data dan logika bisnis aplikasi. Ini bertanggung jawab untuk mengelola data dan logika yang berkaitan dengan data.
-    * (VIEW)
-    Bertanggung jawab untuk menampilkan data kepada pengguna. Ini adalah antarmuka pengguna yang berinteraksi dengan pengguna dan menampilkan informasi dari Model.
-    * (CONTROLLER)
-    Bertindak sebagai perantara antara Model dan View. Ini mengontrol alur aplikasi, menerima input dari pengguna, memproses permintaan, dan memperbarui Model atau View sesuai kebutuhan.
+    * Dengan MVT, Django memisahkan konsep tampilan (View) dan tampilan (Template) dengan jelas. Ini memungkinkan pengembang untuk merancang tampilan web yang lebih fleksibel dan memisahkan kode logika dari tampilan, sehingga memudahkan pemeliharaan dan pengembangan aplikasi web
 - MVT (Model-View-Template):
-    * (MODEL)
-    Sama seperti dalam MVC, ini mewakili data dan logika bisnis aplikasi.
-    * (VIEW)
-    Bertanggung jawab untuk menampilkan data kepada pengguna, sama seperti dalam MVC.
-    * (TEMPLATE)
-    Template berisi markup HTML dengan kode logika yang minimal. Template digunakan untuk menghasilkan tampilan akhir yang akan ditampilkan kepada pengguna. Template terutama digunakan dalam kerangka kerja Django untuk aplikasi web Python.
+    * Template berisi markup HTML dengan kode logika yang minimal. Template digunakan untuk menghasilkan tampilan akhir yang akan ditampilkan kepada pengguna. Template terutama digunakan dalam kerangka kerja Django untuk aplikasi web Python.
 - MVVM (Model-View-ViewModel):
-    * (MODEL)
-    Sama seperti dalam MVC, ini mewakili data dan logika bisnis aplikasi.
-    * (VIEW)
-    Bertanggung jawab untuk menampilkan data kepada pengguna, tetapi dalam MVVM, View lebih pasif daripada dalam MVC. View hanya berisi tampilan dan tidak memiliki logika bisnis yang signifikan.
-    * (TEMPLATE)
-    Bertindak sebagai perantara antara Model dan View. Ini mengelola tampilan data yang akan ditampilkan oleh View dan menyediakan metode untuk interaksi dengan Model. ViewModel juga memungkinkan pengikatan data dua arah antara Model dan View.
+    * MVVM adalah memisahkan logika bisnis aplikasi dari tampilan sehingga pengembang dapat bekerja secara terpisah pada kedua aspek ini. Ini juga memfasilitasi pengikatan data dua arah, yang memungkinkan perubahan dalam Model secara otomatis tercermin dalam tampilan, dan sebaliknya.
+
+- Perbedaan antara MVC dan MVT memiliki perbedaan di mana MVC controller memiliki pperan yang lebih aktif dalam mengontrol aplikasi. sementara MVVM adalah pola desain dengan viewmodel sebagai perantara antara model dan view. MVC dan MVVM sering digunakan dalam pengembangan aplikasi berbasis antarmuka pengguna (UI), sementara MVT khusus untuk pengembangan web dengan Django.
+
+
+
+
+
