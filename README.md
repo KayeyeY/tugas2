@@ -73,11 +73,11 @@ LINK REPO : https://github.com/KayeyeY/tugas2.git
 - elaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
 - Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
-<img src="diagram/Screenshot 2023-09-13 103337.png">
-<img src="diagram/Screenshot 2023-09-13 103337.png">
-<img src="diagram/Screenshot 2023-09-13 103337.png">
-<img src="diagram/Screenshot 2023-09-13 103337.png">
-<img src="diagram/Screenshot 2023-09-13 103337.png">
+<img src="diagram/Screenshot 2023-09-19 225515.png">
+<img src="diagram/Screenshot 2023-09-19 225902.png">
+<img src="diagram/Screenshot 2023-09-19 225927.png">
+<img src="diagram/Screenshot 2023-09-19 225956.png">
+<img src="diagram/Screenshot 2023-09-19 230206.png">
 
 
 
