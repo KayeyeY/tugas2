@@ -56,15 +56,15 @@ LINK REPO : https://github.com/KayeyeY/tugas2.git
 ### README TUGAS 3
 **Apa perbedaan antara form POST dan form GET dalam Django?**
 - Form POST maupun form GET untuk mengirim data dari browser ke server, namun keduanya memiliki beberapa perbedaan.
-    1. Metode pengiriman data:
-        *POST: Data dikirim sebagai bagian dari body permintaan HTTP, yang tidak terlihat dalam URL.
-        *GET: Data dikirimkan sebagai bagian dari URL sebagai parameter query string.
-    2. Keamanan:
-        *POST: Cocok untuk mengirim data sensitif atau data yang harus diamankan.
-        *GET: Kurang aman karena data terlihat dalam URL dan dapat dilihat oleh pengguna atau pihak ketiga.
-    3. Ukuran data:
-        *POST: Tidak ada batasan bawaan pada ukuran data yang dapat dikirimkan dalam form POST.
-        *GET: Ada batasan ukuran data dalam form GET (sekitar 2048 karakter).
+    1. Metode pengiriman data:  
+        * POST: Data dikirim sebagai bagian dari body permintaan HTTP, yang tidak terlihat dalam URL.
+        * GET: Data dikirimkan sebagai bagian dari URL sebagai parameter query string.
+    2. Keamanan:  
+        * POST: Cocok untuk mengirim data sensitif atau data yang harus diamankan.
+        * GET: Kurang aman karena data terlihat dalam URL dan dapat dilihat oleh pengguna atau pihak ketiga.
+    3. Ukuran data:  
+        * POST: Tidak ada batasan bawaan pada ukuran data yang dapat dikirimkan dalam form POST.
+        * GET: Ada batasan ukuran data dalam form GET (sekitar 2048 karakter).
 
 **Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?**
 - XML: 
