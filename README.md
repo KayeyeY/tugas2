@@ -66,13 +66,24 @@ LINK REPO : https://github.com/KayeyeY/tugas2.git
         *POST: Tidak ada batasan bawaan pada ukuran data yang dapat dikirimkan dalam form POST.
         *GET: Ada batasan ukuran data dalam form GET (sekitar 2048 karakter).
 
-- Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+**Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?**
+- XML: 
+    * Menyusun data dalam hierarki yang sangat fleksibel.
+    * Membutuhkan lebih banyak waktu dan sumber daya untuk menguraikan data XML dibandingkan dengan JSON karena struktur markup yang lebih rumit.
+    * Berguna untuk konfigurasi aplikasi dan integrasi lintas platform
+- JSON:
+    * Format yang terdiri dari pasangan nama-kunci dan nilai yang digunakan untuk mengatur data.
+    * Diproses lebih efisien oleh browser dan sebagian besar bahasa pemrograman karena formatnya yang kompak dan struktur datanya yang sederhana.
+    * Ideal untuk komunikasi web dan API
+- HTML:
+    * Digunakan untuk membuat konten web yang dapat ditampilkan di browser.
+    * Mengatur tampilan dan interaksi konten
 
-- Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+**Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?**
 
-- elaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
 
-- Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
+**Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.**
 <img src="diagram/Screenshot 2023-09-19 225515.png">
 <img src="diagram/Screenshot 2023-09-19 225902.png">
 <img src="diagram/Screenshot 2023-09-19 225927.png">
