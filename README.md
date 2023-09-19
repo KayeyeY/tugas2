@@ -68,6 +68,12 @@ LINK REPO : https://github.com/KayeyeY/tugas2.git
 
 - Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
 
+- Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+
+- elaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+- 
+
 
 
 
