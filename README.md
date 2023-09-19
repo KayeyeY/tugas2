@@ -80,8 +80,42 @@ LINK REPO : https://github.com/KayeyeY/tugas2.git
     * Mengatur tampilan dan interaksi konten
 
 **Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?**
+1. Kompak dan Ringkas
+    - JSON memiliki format yang sederhana dan ringkas, yang membuatnya sangat efisien dalam hal penggunaan bandwidth. 
+2. Struktur Data yang Mudah Dipahami
+    - SON mengadopsi format objek yang mirip dengan banyak bahasa pemrograman, membuatnya mudah dipahami oleh pengembang. 
+3. Kecepatan Penguraian (Parsing)
+    - Karena struktur data yang sederhana, JSON dapat dengan cepat dan mudah diurai (parsed) oleh browser dan banyak bahasa pemrograman.
+4. Kompatibilitas dengan JavaScript
+    - JSON dapat langsung diurai menjadi objek JavaScript dalam kode JavaScript di browser.
+5. Mendukung Berbagai Jenis Data
+    - JSON dapat digunakan untuk mengirimkan berbagai jenis data.
+6. Dukungan yang Luas
+    - JSON didukung oleh sebagian besar bahasa pemrograman, sehingga memungkinkan interoperabilitas yang lebih baik
+7. Dukungan Terintegrasi
+    - Banyak perpustakaan (libraries) dan framework di dunia pengembangan web menyediakan dukungan bawaan untuk JSON.
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+- Membuat input form untuk menambahkan objek model pada app sebelumnya.
+    1. Membuat folder baru `templates` pada root folder dan buat base.html  yang berguna sebagai template dasar.
+    2. Ubah `main.html` pada subdirektori `templates` yang ada pada direktori `main`.
+    3. Buat berkas baru `forms.py` pada direktori `main` lalu tambahkan objek yang sudah dibuat pada bagian fields
+    4. Tambahkan import `from main.forms import ProductForm` dan `from django.urls import reverse` pada `views.py`
+    5. Buat fungsi baru create_product dan ubah fungsi show_main. Setelah itu import create product di `urls.py`
+    6. Tambahkan path url ke urlpatterns pada `urls.py` di main
+    7. Buat berkas HTML `create_product.html` di main/templates. Lalu isi dengan kode yang sesuai
+
+- Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID. Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
+    1. Buat parameter request `show_xml` dan bua variabel di dalam fungsi yang menyimpan hasil query dari data yang ada di product. Tambahkan return function HttpResponse dan parameter data hasil query.
+    2. Import fungsi yang sudah di buat pada urls.py
+    3. Tambahkan path url pada urlpatterns untuk mengakses fungsi yang sudah diimpor.
+    4. Ulangi langkah 1-3 untuk JSON.
+    5. Buka `views.py` pada folder main dan buat fungsi baru "show_xml_by_id" dan "show_json_by_id".
+    6. Buat parameter yang menyimpan hasil query dari data dengan id yang ada di product.
+    7. Tambahkan "applicaion/xml" untuk XML dan "application/json" untuk JSON.
+    8. Impor fungsi yang sudah dibuat pada `urls.py` di folder main.
+    9. Tambahkan path url ke dalam urlpatterns agar fungsi yang sudah diimpor bisa diakses.
+
 
 **Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.**
 <img src="diagram/Screenshot 2023-09-19 225515.png">
