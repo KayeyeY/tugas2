@@ -5,6 +5,7 @@
 ## LINK REPO
 LINK REPO : https://github.com/KayeyeY/tugas2.git
 
+### README TUGAS 2
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
 - Membuat sebuah proyek Django baru
     * Sesuai dengan tutorial yang diberikan, dengan menginisiasi direktori lokal, kemudian aktifkan virtual environment dengan perintah env\Scripts\activate.bat.
@@ -51,6 +52,23 @@ LINK REPO : https://github.com/KayeyeY/tugas2.git
     * MVVM adalah memisahkan logika bisnis aplikasi dari tampilan sehingga pengembang dapat bekerja secara terpisah pada kedua aspek ini. Ini juga memfasilitasi pengikatan data dua arah, yang memungkinkan perubahan dalam Model secara otomatis tercermin dalam tampilan, dan sebaliknya.
 
 - Perbedaan antara MVC dan MVT memiliki perbedaan di mana MVC controller memiliki peran yang lebih aktif dalam mengontrol aplikasi. sementara MVVM adalah pola desain dengan viewmodel sebagai perantara antara model dan view. MVC dan MVVM sering digunakan dalam pengembangan aplikasi berbasis antarmuka pengguna (UI), sementara MVT khusus untuk pengembangan web dengan Django.
+
+### README TUGAS 3
+**Apa perbedaan antara form POST dan form GET dalam Django?**
+- Form POST maupun form GET untuk mengirim data dari browser ke server, namun keduanya memiliki beberapa perbedaan.
+    1. Metode pengiriman data:
+        *POST: Data dikirim sebagai bagian dari body permintaan HTTP, yang tidak terlihat dalam URL.
+        *GET: Data dikirimkan sebagai bagian dari URL sebagai parameter query string.
+    2. Keamanan:
+        *POST: Cocok untuk mengirim data sensitif atau data yang harus diamankan.
+        *GET: Kurang aman karena data terlihat dalam URL dan dapat dilihat oleh pengguna atau pihak ketiga.
+    3. Ukuran data:
+        *POST: Tidak ada batasan bawaan pada ukuran data yang dapat dikirimkan dalam form POST.
+        *GET: Ada batasan ukuran data dalam form GET (sekitar 2048 karakter).
+
+- Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+
+
 
 
 
