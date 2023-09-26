@@ -131,13 +131,99 @@ LINK REPO : https://github.com/KayeyeY/tugas2.git
 
 - Kelebihan dari `UserCreationForm`:
     1. Mudah digunakan
+        - Dapat menggunakannya dengan mudah tanpa perlu menulis kode tambahan untuk membuat formulir pendaftaran dasar.
     2. Validasi Terintegrasi
+        - Memiliki validasi bawaan yang bertujuan untuk memeriksa apakah input yang dimasukkan oleh pengguna sesuai dengan ketentuan yang telah ditetapkan, termasuk proses konfirmasi kata sandi.
     3. Fungsionalitas Terkait Pengguna
+        - Dapat digunakan untuk mengelola tugas terkait pengguna lainnya, seperti mengubah kata sandi atau alamat email pengguna.
 
 - Kekurangan dari `UserCreationForm`:
     1. Kustomisasi Terbatas
+        - Formulir ini menyediakan fitur dasar, dan jika Anda menginginkan formulir pendaftaran yang lebih disesuaikan dengan kebutuhan khusus Anda, Anda harus menambahkan kode tambahan untuk mengadaptasinya.
     2. Terbatas pada Basis Data Bawaan
+        - Dibuat dengan fokus pada integrasi dengan model pengguna standar Django. Jika Anda memiliki keperluan yang lebih kompleks atau menggunakan model pengguna yang berbeda, Anda mungkin harus mengkustomisasi atau membuat formulir pendaftaran sesuai dengan kebutuhan Anda.
     3. Kemungkinan Overhead
+        - Pada beberapa kesempatan, jika Anda hanya membutuhkan sebagian kecil dari kemampuan yang disediakan oleh UserCreationForm, penggunaannya bisa menjadi berlebihan dan mengakibatkan penambahan kode yang tidak perlu.
+
+**Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?**
+    - Autentikasi : proses verifikasi identitas pengguna yang mencoba mengakses sistem atau aplikasi. Bertujuan untuk memastikan pengguna yang mengklaim identitas adalah identitas mereka yang sebenarnya.
+    - Otorisasi : Proses yang terjadi setelah pengguna berhasil mengidentifikasi dirinya, yang melibatkan pemberian hak akses kepada pengguna dalam aplikasi berdasarkan peran atau izin yang dimilikinya.  
+      
+    Keduanya penting karena gabungan antara autentikasi dan otorisasi adalah esensial dalam mengembangkan aplikasi web yang aman dan efisien. Autentikasi menegaskan identitas pengguna yang masuk ke dalam aplikasi, sementara otorisasi mengontrol hak akses pengguna agar sesuai dengan peran dan izin yang mereka miliki dalam aplikasi.
+
+**Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?**
+    - Cookies adalah metode penyimpanan data kecil yang dikirim oleh server web ke peramban (browser) pengguna dan disimpan di perangkat klien sebagai file teks. Dalam konteks aplikasi web, cookies digunakan untuk menyimpan informasi simpel yang memungkinkan identifikasi dan pelacakan pengguna selama sesi mereka saat berinteraksi dengan situs web atau aplikasi.
+
+    - Django memanfaatkan cookies untuk mengelola data sesi pengguna dengan cara:
+        * Penyimpanan Data Sesi : Data sesi pengguna dapat disimpan dalam cookies atau dalam penyimpanan lain yang lebih aman seperti basis data.
+        * Penanganan Cookies : Django secara otomatis mengelola cookies yang digunakan untuk menyimpan informasi sesi.
+        * Konfigurasi Cookies: Anda dapat mengonfigurasi berbagai aspek cookies sesi dalam pengaturan Django, 
+        * Penggunaan Data Sesi: Data sesi pengguna dapat diakses dan dimanipulasi dengan mudah dalam tampilan Django atau dalam kode aplikasi Anda.
+
+**Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?**
+    - Penggunaan cookies dalam pengembangan web dapat menjadi aman jika dikelola dengan baik, namun ada beberapa risiko potensial yang harus diwaspadai. Dengan pengelolaan yang baik dan tindakan keamanan yang tepat, cookies dapat digunakan dengan aman dalam pengembangan web. Namun, selalu penting untuk mempertimbangkan aspek keamanan dan privasi saat merancang dan mengimplementasikan cookies dalam aplikasi web Anda, misalnya seperti menggunakan protokol https, menggunakan atribut secure dan HttpOnly lalu memahami dan mematuhi regulasi privasi data.
+
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+    - Buka `views.py` yang ada di main dan buat fungsi `register` dengan parameter `request` lalu tambahkan input seperti di bawah:
+
+    ```
+    def register(request):
+    form = UserCreationForm()
+
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your account has been successfully created!')
+            return redirect('main:login')
+    context = {'form':form}
+    return render(request, 'register.html', context)
+    ```
+
+    - Buat `register.html` pada main/templates lalu diisi dengan kode dibawah:
+
+    ```
+    {% extends 'base.html' %}
+
+    {% block meta %}
+        <title>Register</title>
+    {% endblock meta %}
+
+    {% block content %}  
+
+    <div class = "login">
+        
+        <h1>Register</h1>  
+
+            <form method="POST" >  
+                {% csrf_token %}  
+                <table>  
+                    {{ form.as_table }}  
+                    <tr>  
+                        <td></td>
+                        <td><input type="submit" name="submit" value="Daftar"/></td>  
+                    </tr>  
+                </table>  
+            </form>
+
+        {% if messages %}  
+            <ul>   
+                {% for message in messages %}  
+                    <li>{{ message }}</li>  
+                    {% endfor %}  
+            </ul>   
+        {% endif %}
+
+    </div>  
+
+    {% endblock content %}
+    ```
+
+    - Impor fungsi yang sudah dibuat dan tambahkan path url ke dalam urlpatterns
+
+    - Buat fungsi `login_user` dengan
+
+
 
 
 
