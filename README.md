@@ -125,6 +125,20 @@ LINK REPO : https://github.com/KayeyeY/tugas2.git
 <img src="diagram/Screenshot 2023-09-19 230206.png">
 
 
+### README TUGAS 4
+**Apa itu Django `UserCreationForm`, dan jelaskan apa kelebihan dan kekurangannya?**
+- Formulir bawaan yang disediakan oleh Django. Formulir ini digunakan untuk membuat formulir pendaftaran (signup) untuk pengguna (user) dalam aplikasi web yang menggunakan Django. Dengan menggunakan `UserCreationForm` kita dapat dengen cepat membuat formulir yang memungkinkan pengguna untuk mendaftar akun dengan nama pengguna (username) dan kata sandi (password), serta memvalidasi data masukan dengan mudah.
+
+- Kelebihan dari `UserCreationForm`:
+    1. Mudah digunakan
+    2. Validasi Terintegrasi
+    3. Fungsionalitas Terkait Pengguna
+
+- Kekurangan dari `UserCreationForm`:
+    1. Kustomisasi Terbatas
+    2. Terbatas pada Basis Data Bawaan
+    3. Kemungkinan Overhead
+
 
 
 
