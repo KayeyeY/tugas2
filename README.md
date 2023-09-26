@@ -164,64 +164,13 @@ LINK REPO : https://github.com/KayeyeY/tugas2.git
     - Penggunaan cookies dalam pengembangan web dapat menjadi aman jika dikelola dengan baik, namun ada beberapa risiko potensial yang harus diwaspadai. Dengan pengelolaan yang baik dan tindakan keamanan yang tepat, cookies dapat digunakan dengan aman dalam pengembangan web. Namun, selalu penting untuk mempertimbangkan aspek keamanan dan privasi saat merancang dan mengimplementasikan cookies dalam aplikasi web Anda, misalnya seperti menggunakan protokol https, menggunakan atribut secure dan HttpOnly lalu memahami dan mematuhi regulasi privasi data.
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
-    - Buka `views.py` yang ada di main dan buat fungsi `register` dengan parameter `request` lalu tambahkan input seperti di bawah:
-
-    ```
-    def register(request):
-    form = UserCreationForm()
-
-    if request.method == "POST":
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Your account has been successfully created!')
-            return redirect('main:login')
-    context = {'form':form}
-    return render(request, 'register.html', context)
-    ```
-
-    - Buat `register.html` pada main/templates lalu diisi dengan kode dibawah:
-
-    ```
-    {% extends 'base.html' %}
-
-    {% block meta %}
-        <title>Register</title>
-    {% endblock meta %}
-
-    {% block content %}  
-
-    <div class = "login">
-        
-        <h1>Register</h1>  
-
-            <form method="POST" >  
-                {% csrf_token %}  
-                <table>  
-                    {{ form.as_table }}  
-                    <tr>  
-                        <td></td>
-                        <td><input type="submit" name="submit" value="Daftar"/></td>  
-                    </tr>  
-                </table>  
-            </form>
-
-        {% if messages %}  
-            <ul>   
-                {% for message in messages %}  
-                    <li>{{ message }}</li>  
-                    {% endfor %}  
-            </ul>   
-        {% endif %}
-
-    </div>  
-
-    {% endblock content %}
-    ```
+    - Buka `views.py` yang ada di main dan buat fungsi `register` dengan parameter `request`
+    
+    - Buat `register` pada main/templates lalu diisi dengan kode yang sesuai template.
 
     - Impor fungsi yang sudah dibuat dan tambahkan path url ke dalam urlpatterns
 
-    - Buat fungsi `login_user` dengan
+    - Buat fungsi  dengan
 
 
 
