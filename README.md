@@ -146,31 +146,124 @@ LINK REPO : https://github.com/KayeyeY/tugas2.git
         - Pada beberapa kesempatan, jika Anda hanya membutuhkan sebagian kecil dari kemampuan yang disediakan oleh UserCreationForm, penggunaannya bisa menjadi berlebihan dan mengakibatkan penambahan kode yang tidak perlu.
 
 **Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?**
-    - Autentikasi : proses verifikasi identitas pengguna yang mencoba mengakses sistem atau aplikasi. Bertujuan untuk memastikan pengguna yang mengklaim identitas adalah identitas mereka yang sebenarnya.
-    - Otorisasi : Proses yang terjadi setelah pengguna berhasil mengidentifikasi dirinya, yang melibatkan pemberian hak akses kepada pengguna dalam aplikasi berdasarkan peran atau izin yang dimilikinya.  
-      
-    Keduanya penting karena gabungan antara autentikasi dan otorisasi adalah esensial dalam mengembangkan aplikasi web yang aman dan efisien. Autentikasi menegaskan identitas pengguna yang masuk ke dalam aplikasi, sementara otorisasi mengontrol hak akses pengguna agar sesuai dengan peran dan izin yang mereka miliki dalam aplikasi.
+- Autentikasi : proses verifikasi identitas pengguna yang mencoba mengakses sistem atau aplikasi. Bertujuan untuk memastikan pengguna yang mengklaim identitas adalah identitas mereka yang sebenarnya.
+- Otorisasi : Proses yang terjadi setelah pengguna berhasil mengidentifikasi dirinya, yang melibatkan pemberian hak akses kepada pengguna dalam aplikasi berdasarkan peran atau izin yang dimilikinya.  
+    
+Keduanya penting karena gabungan antara autentikasi dan otorisasi adalah esensial dalam mengembangkan aplikasi web yang aman dan efisien. Autentikasi menegaskan identitas pengguna yang masuk ke dalam aplikasi, sementara otorisasi mengontrol hak akses pengguna agar sesuai dengan peran dan izin yang mereka miliki dalam aplikasi.
 
 **Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?**
-    - Cookies adalah metode penyimpanan data kecil yang dikirim oleh server web ke peramban (browser) pengguna dan disimpan di perangkat klien sebagai file teks. Dalam konteks aplikasi web, cookies digunakan untuk menyimpan informasi simpel yang memungkinkan identifikasi dan pelacakan pengguna selama sesi mereka saat berinteraksi dengan situs web atau aplikasi.
+- Cookies adalah metode penyimpanan data kecil yang dikirim oleh server web ke peramban (browser) pengguna dan disimpan di perangkat klien sebagai file teks. Dalam konteks aplikasi web, cookies digunakan untuk menyimpan informasi simpel yang memungkinkan identifikasi dan pelacakan pengguna selama sesi mereka saat berinteraksi dengan situs web atau aplikasi.
 
-    - Django memanfaatkan cookies untuk mengelola data sesi pengguna dengan cara:
-        * Penyimpanan Data Sesi : Data sesi pengguna dapat disimpan dalam cookies atau dalam penyimpanan lain yang lebih aman seperti basis data.
-        * Penanganan Cookies : Django secara otomatis mengelola cookies yang digunakan untuk menyimpan informasi sesi.
-        * Konfigurasi Cookies: Anda dapat mengonfigurasi berbagai aspek cookies sesi dalam pengaturan Django, 
-        * Penggunaan Data Sesi: Data sesi pengguna dapat diakses dan dimanipulasi dengan mudah dalam tampilan Django atau dalam kode aplikasi Anda.
+- Django memanfaatkan cookies untuk mengelola data sesi pengguna dengan cara:
+    * Penyimpanan Data Sesi : Data sesi pengguna dapat disimpan dalam cookies atau dalam penyimpanan lain yang lebih aman seperti basis data.
+    * Penanganan Cookies : Django secara otomatis mengelola cookies yang digunakan untuk menyimpan informasi sesi.
+    * Konfigurasi Cookies: Anda dapat mengonfigurasi berbagai aspek cookies sesi dalam pengaturan Django, 
+    * Penggunaan Data Sesi: Data sesi pengguna dapat diakses dan dimanipulasi dengan mudah dalam tampilan Django atau dalam kode aplikasi Anda.
 
 **Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?**
-    - Penggunaan cookies dalam pengembangan web dapat menjadi aman jika dikelola dengan baik, namun ada beberapa risiko potensial yang harus diwaspadai. Dengan pengelolaan yang baik dan tindakan keamanan yang tepat, cookies dapat digunakan dengan aman dalam pengembangan web. Namun, selalu penting untuk mempertimbangkan aspek keamanan dan privasi saat merancang dan mengimplementasikan cookies dalam aplikasi web Anda, misalnya seperti menggunakan protokol https, menggunakan atribut secure dan HttpOnly lalu memahami dan mematuhi regulasi privasi data.
+- Penggunaan cookies dalam pengembangan web dapat menjadi aman jika dikelola dengan baik, namun ada beberapa risiko potensial yang harus diwaspadai. Dengan pengelolaan yang baik dan tindakan keamanan yang tepat, cookies dapat digunakan dengan aman dalam pengembangan web. Namun, selalu penting untuk mempertimbangkan aspek keamanan dan privasi saat merancang dan mengimplementasikan cookies dalam aplikasi web Anda, misalnya seperti menggunakan protokol https, menggunakan atribut secure dan HttpOnly lalu memahami dan mematuhi regulasi privasi data.
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
-    - Buka `views.py` yang ada di main dan buat fungsi `register` dengan parameter `request`
+- Buka `views.py` yang ada di main dan buat fungsi `register` dengan parameter `request`.
+```
+def register(request):
+    form = UserCreationForm()
+
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your account has been successfully created!')
+            return redirect('main:login')
+    context = {'form':form}
+    return render(request, 'register.html', context)
+```  
+
+- Buat `register.html` pada main/templates lalu diisi dengan kode yang sesuai template.
+```
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>Register</title>
+{% endblock meta %}
+
+{% block content %}  
+
+<div class = "login">
     
-    - Buat `register` pada main/templates lalu diisi dengan kode yang sesuai template.
+    <h1>Register</h1>  
 
-    - Impor fungsi yang sudah dibuat dan tambahkan path url ke dalam urlpatterns
+        <form method="POST" >  
+            {% csrf_token %}  
+            <table>  
+                {{ form.as_table }}  
+                <tr>  
+                    <td></td>
+                    <td><input type="submit" name="submit" value="Daftar"/></td>  
+                </tr>  
+            </table>  
+        </form>
 
-    - Buat fungsi  dengan
+    {% if messages %}  
+        <ul>   
+            {% for message in messages %}  
+                <li>{{ message }}</li>  
+                {% endfor %}  
+        </ul>   
+    {% endif %}
+
+</div>  
+
+{% endblock content %}
+```
+
+- Impor fungsi yang sudah dibuat dan tambahkan path url ke dalam urlpatterns
+
+- Buat fungsi `login user` dengan parameter `request`. lalu isi dengan kode yang sesuai template dan routing ke url.
+
+- Tambahkan fungsi logout pada `views.py` pada subdirektori `main`.
+```
+def logout_user(request):
+    logout(request)
+    return redirect('main:login')
+```
+
+- Tambahkan potongan kode di bawah pada `main.html` dan routing url.
+```
+<a href="{% url 'main:logout' %}">
+    <button>
+        Logout
+    </button>
+</a>
+```
+
+- Akun dummy:
+    * Aerith : luminous12
+    * Palazo : munbazzz3
+
+- Tambahkan user di `models.py`, lalu modifikasi fungsi create_item pada `views.py`. lalu siapkan parameter commit = false.
+
+- Isi bidang user dengan objek User dari nilai balik request.user untuk menandakan bahwa objek tersebut dimiliki oleh pengguna yang sedang masuk
+
+- Buka `views.py` pada direktori main dan import `HttpResponseRedirect`, `reverse` dan `datetime`.
+
+- Tambahkan potongan kode `'last_login': request.COOKIES['last_login']` pada fungsi show_main.
+
+- Ubah fungsi logout_user
+```
+def logout_user(request):
+    logout(request)
+    response = HttpResponseRedirect(reverse('main:login'))
+    response.delete_cookie('last_login')
+    return response
+```
+
+- Pada berkas `main.html` tambahkan potongan kode
+```
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+```
+
+
 
 
 
