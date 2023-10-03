@@ -5,31 +5,50 @@
 {% endblock meta %}
 
 {% block content %}
+<style>
+    .navbar {
+    background-image: url('/static/images/navbar-background.png'); /* Ganti dengan path yang sesuai */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
-<div class = "login">
+    .card-body {
+        font-size: 20px;
+    }
+    </style>
+<nav class="navbar" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+        <h1>Login</h1>
+    </div>
+</nav>
 
-    <h1>Login</h1>
-
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
+<div class="container d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>Username: </td>
+                        <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                    </tr>
                     
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
+                    <tr>
+                        <td>Password: </td>
+                        <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                    </tr>
 
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
+                    <tr>
+                        <td></td>
+                        <td><input class="btn btn-primary" type="submit" value="Login"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
 
+<div class="container text-center mt-4">
     {% if messages %}
         <ul>
             {% for message in messages %}
@@ -38,8 +57,7 @@
         </ul>
     {% endif %}     
         
-    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
-
+    Don't have an account yet? <a class="btn btn-primary" href="{% url 'main:register' %}" role="button">Register Now</a>
 </div>
 
 {% endblock content %}
