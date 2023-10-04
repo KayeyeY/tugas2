@@ -263,11 +263,90 @@ def logout_user(request):
 <h5>Sesi terakhir login: {{ last_login }}</h5>
 ```
 
+### README TUGAS 5
+**Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.**
+- Penggunaan Selector Element (h1, div):
+    * Penggunaan ini bermanfaat untuk mengidentifikasi dan memilih elemen berdasarkan jenis atau nama elemen HTML yang digunakan. Ini cocok digunakan saat Anda ingin menerapkan gaya atau perubahan tertentu pada semua elemen dengan jenis yang sama, seperti mengubah semua elemen <h1> atau <div>.
 
+- Penggunaan Selector Class (nama class):
+    * Penggunaan ini berguna untuk memilih elemen berdasarkan nama kelas yang telah diberikan pada elemen-elemen tersebut. Ini berguna ketika Anda ingin mengubah tampilan atau perilaku dari sekelompok elemen yang memiliki class yang sama. Anda dapat mengaplikasikan perubahan dengan mudah ke semua elemen tersebut.
 
+- Penggunaan Selector ID:
+    * Penggunaan ini berguna untuk memilih elemen berdasarkan ID unik yang diberikan pada elemen tertentu. Biasanya, ini digunakan ketika Anda perlu menargetkan elemen yang sangat spesifik dan elemen tersebut hanya ada satu kali dalam halaman web. Selector ID digunakan untuk memastikan bahwa perubahan atau manipulasi yang dilakukan hanya berlaku pada elemen yang spesifik tersebut dan tidak digunakan berulang kali.
 
+**Jelaskan HTML5 Tag yang kamu ketahui.**
+- `<head>` : Elemen ini digunakan untuk memuat informasi tentang dokumen, seperti judul (<title>), meta data, dan tautan ke berkas eksternal seperti CSS dan JavaScript.
+- `<title>` : Ini adalah tag yang digunakan untuk menentukan judul dokumen yang akan ditampilkan di bilah judul browser.
+- `<link>` : Digunakan untuk menautkan dokumen HTML ke berkas-berkas eksternal, seperti berkas CSS.
+- `<div>` : Ini adalah elemen umum yang digunakan untuk mengelompokkan dan mengatur konten dalam halaman web.
+- `<p>` : Digunakan untuk menampilkan paragraf teks.
+- `<a>`: Elemen ini digunakan untuk membuat tautan atau hyperlink ke halaman web lain atau sumber daya lain.
+- `<header>`: Digunakan untuk mengelompokkan elemen-elemen yang biasanya berada di bagian atas halaman web, seperti logo, judul, dan menu navigas
 
+**Jelaskan perbedaan antara margin dan padding.**
+- Margin digunakan untuk mengatur jarak atau ruang di sekitar elemen, yang memengaruhi jarak antara elemen dan elemen lain di sekitarnya. Ini tidak mempengaruhi tampilan atau isi dari elemen itu sendiri, melainkan hanya menambahkan jarak tambahan di sekelilingnya.
 
+- Sementara itu, padding digunakan untuk mengatur ruang di dalam elemen itu sendiri, yang memengaruhi jarak antara batas elemen dan kontennya. Padding memengaruhi ruang di dalam elemen tersebut, di antara batas elemen dan kontennya sendiri, sehingga mengubah ukuran sebenarnya dari elemen tersebut.
+
+**Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?**
+1. Pendekatan Desain:
+    - Bootstrap: Bootstrap memiliki desain yang telah ditentukan sebelumnya (pre-designed) dengan komponen-komponen UI yang sudah dibuat. 
+    - Tailwind CSS: Tailwind CSS adalah framework yang lebih "utility-first." Ini berarti Anda membangun komponen Anda sendiri dengan menggabungkan kelas-kelas utilitas yang tersedia dalam framework.
+
+2. Kompleksitas:
+    - Bootstrap: Bootstrap cenderung lebih berisi fitur dan kompleks. Ini menghadirkan komponen-komponen UI yang lengkap dengan desain bawaan.
+    - Tailwind CSS: Tailwind CSS lebih ringan dan memberikan Anda kendali yang lebih besar dalam mengatur desain.
+
+3. Kustomisasi:
+    - Bootstrap: Kustomisasi dalam Bootstrap memerlukan penyesuaian CSS yang lebih dalam. Mengubah tampilan komponen Bootstrap yang ada bisa lebih rumit.
+    - Tailwind CSS: Tailwind CSS dirancang untuk kustomisasi yang mudah. Anda dapat mengubah tampilan komponen dengan menambahkan atau menghapus kelas-kelas utilitas.  
+
+Anda dapat memilih Bootstrap ketika Anda membutuhkan desain yang dapat dibangun dengan cepat menggunakan komponen UI yang sudah tersedia, terutama untuk proyek-proyek yang memerlukan tampilan yang sudah ditentukan sebelumnya dan memiliki batasan waktu. Di sisi lain, Tailwind CSS cocok digunakan ketika Anda memerlukan fleksibilitas yang tinggi dalam merancang desain yang sangat kustom sesuai dengan kebutuhan proyek Anda. 
+
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+- Menambahkan kode pada `<head>` di `base.hmtl`:
+        ```<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">```
+- Modifikasi `create.product`, `edit_product`, `login`, `main` dan `register` untuk memperbagus tampilan, seperti menggunakan navbar, cards dan button.
+- contoh:
+    ```
+    {% extends 'base.html' %} 
+
+    {% block content %}
+
+    <nav class="navbar" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#">Add New Product</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="{% url 'main:show_main'%}">Home</a>
+            <a class="nav-link" href="{% url 'main:logout' %}">Logout</a>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <div class="card border-primary mb-3" style="width: fit-content,">
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary" type="submit" value="Add Product">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    {% endblock %}
+    ```
 
 
 
