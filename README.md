@@ -266,7 +266,7 @@ def logout_user(request):
 ### README TUGAS 5
 **Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.**
 - Penggunaan Selector Element (h1, div):
-    * Penggunaan ini bermanfaat untuk mengidentifikasi dan memilih elemen berdasarkan jenis atau nama elemen HTML yang digunakan. Ini cocok digunakan saat Anda ingin menerapkan gaya atau perubahan tertentu pada semua elemen dengan jenis yang sama, seperti mengubah semua elemen <h1> atau <div>.
+    * Penggunaan ini bermanfaat untuk mengidentifikasi dan memilih elemen berdasarkan jenis atau nama elemen HTML yang digunakan. Ini cocok digunakan saat Anda ingin menerapkan gaya atau perubahan tertentu pada semua elemen dengan jenis yang sama, seperti mengubah semua elemen (h1) atau (div).
 
 - Penggunaan Selector Class (nama class):
     * Penggunaan ini berguna untuk memilih elemen berdasarkan nama kelas yang telah diberikan pada elemen-elemen tersebut. Ini berguna ketika Anda ingin mengubah tampilan atau perilaku dari sekelompok elemen yang memiliki class yang sama. Anda dapat mengaplikasikan perubahan dengan mudah ke semua elemen tersebut.
@@ -275,7 +275,7 @@ def logout_user(request):
     * Penggunaan ini berguna untuk memilih elemen berdasarkan ID unik yang diberikan pada elemen tertentu. Biasanya, ini digunakan ketika Anda perlu menargetkan elemen yang sangat spesifik dan elemen tersebut hanya ada satu kali dalam halaman web. Selector ID digunakan untuk memastikan bahwa perubahan atau manipulasi yang dilakukan hanya berlaku pada elemen yang spesifik tersebut dan tidak digunakan berulang kali.
 
 **Jelaskan HTML5 Tag yang kamu ketahui.**
-- `<head>` : Elemen ini digunakan untuk memuat informasi tentang dokumen, seperti judul (<title>), meta data, dan tautan ke berkas eksternal seperti CSS dan JavaScript.
+- `<head>` : Elemen ini digunakan untuk memuat informasi tentang dokumen, seperti judul (title), meta data, dan tautan ke berkas eksternal seperti CSS dan JavaScript.
 - `<title>` : Ini adalah tag yang digunakan untuk menentukan judul dokumen yang akan ditampilkan di bilah judul browser.
 - `<link>` : Digunakan untuk menautkan dokumen HTML ke berkas-berkas eksternal, seperti berkas CSS.
 - `<div>` : Ini adalah elemen umum yang digunakan untuk mengelompokkan dan mengatur konten dalam halaman web.
