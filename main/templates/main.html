@@ -1,6 +1,74 @@
-<h1>{{ app }}</h1>
+{% extends 'base.html' %}
 
-<h5>Name: </h5>
-<p>{{ name }}<p>
-<h5>Class: </h5>
-<p>{{ class }}<p>
+{% block content %}
+<nav class="navbar" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><h1>Online Item Kay</h1></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+            </ul>
+            <div class="nav-item dropdown">
+                <a class="nav-divnk dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{name}}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{% url 'main:logout' %}">logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<h5>Name:</h5>
+<p>{{name}}</p>
+
+<h5>Class:</h5>
+<p>{{class}}</p>
+
+<br />
+<h5>Item Ready to Buy</h5>
+
+<div class="row">
+  {% for product in products %}
+  <div class="col-md-4 mb-3">
+      <div class="card {% if forloop.last %}highlight{% endif %}">
+          <div class="card-body" style="background-color: #f2f2f2;">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p class="card-text">Price: {{ product.price }}</p>
+              <p class="card-text">Amount: {{ product.amount }}</p>
+              <p class="card-text">Description: {{ product.description }}</p>
+              <p class="card-text">Date Added: {{ product.date_added }}</p>
+              <a href="{% url 'main:edit_product' product.pk %}" class="btn btn-primary">Edit</a>
+              <a href="{% url 'main:delete_product' product.pk %}" class="btn btn-danger">Delete</a>
+          </div>
+      </div>
+  </div>
+  {% endfor %}
+</div>
+
+<style>
+.highlight {
+  border: 2px solid yellow;
+}
+</style>
+<br />
+
+<div class="text-center mt-4">
+  <a href="{% url 'main:create_product' %}" class="btn btn-success">
+      Add New Product
+  </a>
+</div>
+
+<div class="text-center mt-4">
+  <h5>Sesi terakhir login: {{ last_login }}</h5>
+</div>
+
+{% endblock content %}
